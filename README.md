@@ -11,3 +11,4 @@ Install Prisma and SQLite, then initialize Prisma:
 npm install prisma @prisma/client
 npx prisma init
 ```
+> Creates the `prisma/` folder and `.env` file.
