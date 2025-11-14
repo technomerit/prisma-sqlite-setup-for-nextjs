@@ -13,6 +13,7 @@ npx prisma init --datasource-provider sqlite
 ```
 > Creates the `prisma/` folder and `.env` file.
 
+---
 
 ## 2. Configuring `.env`
 
@@ -23,6 +24,7 @@ DATABASE_URL="file:./dev.db"
 > This tells Prisma to create/use the SQLite database file `dev.db` in the `prisma/` folder.
 
 ---
+
 ## 3. Install `dotenv` and `import "dotenv/config";` in the root file `prisma.config.ts`
 ```bash
 npm install dotenv
@@ -44,6 +46,7 @@ export default defineConfig({
   },
 });
 ```
+---
 
 ## 4. Defining Prisma Models (`schema.prisma`)
 
@@ -105,3 +108,23 @@ model OrderItem {
 > Supports users, products, orders, and order items with relationships.
 
 ---
+
+## 5. Creating and Migrating the Database
+
+Run the first migration to create the database and tables:
+```bash
+npx prisma migrate dev --name init
+```
+> Generates `prisma/migrations/` and `prisma/dev.db`.
+
+---
+## 6. Browse database
+
+```bash
+npx prisma studio
+```
+> This will open a browser with newly created database. You can browse your project database here
+
+---
+
+
