@@ -9,7 +9,7 @@ This document summarizes the **full Prisma and SQLite setup and configuration** 
 Install Prisma and SQLite, then initialize Prisma:
 ```bash
 npm install prisma @prisma/client
-npx prisma init
+npx prisma init --datasource-provider sqlite
 ```
 > Creates the `prisma/` folder and `.env` file.
 
