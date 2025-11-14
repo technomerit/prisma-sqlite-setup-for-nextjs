@@ -23,8 +23,29 @@ DATABASE_URL="file:./dev.db"
 > This tells Prisma to create/use the SQLite database file `dev.db` in the `prisma/` folder.
 
 ---
+## 3. Install `dotenv` and `import "dotenv/config";` in the root file `prisma.config.ts`
+```bash
+npm install dotenv
+```
+After installation of `dotenv` import it in `prisma.config.ts` file
 
-## 3. Defining Prisma Models (`schema.prisma`)
+```ts
+import "dotenv/config"; // this line
+import { defineConfig, env } from "prisma/config";
+
+export default defineConfig({
+  schema: "prisma/schema.prisma",
+  migrations: {
+    path: "prisma/migrations",
+  },
+  engine: "classic",
+  datasource: {
+    url: env("DATABASE_URL"),
+  },
+});
+```
+
+## 4. Defining Prisma Models (`schema.prisma`)
 
 Edit `prisma/schema.prisma` with your project models:
 * (Sample models used here, replace them with your own projet models)
